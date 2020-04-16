@@ -2,12 +2,13 @@
 const form = document.querySelector("form");
 const input = form.querySelector("input");
 const addButton = form.querySelector("button");
+const select = form.querySelector("select");
 const ul = document.querySelector(".todos");
 
 //Event Listeners
 addButton.addEventListener("click", createTodo);
 ul.addEventListener("click", completedOrDelete);
-
+select.addEventListener("click", filterTodos);
 //functions
 function createTodo(e) {
   e.preventDefault();
@@ -114,7 +115,36 @@ function removeLocalTodo(todo) {
 
   todos.splice(todoIndex, 1);
 
-  localStorage.setItem('todos', JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
-  
+function filterTodos() {
+  const todos = document.querySelectorAll("li");
+
+  switch (select.value) {
+    case "all": {
+      todos.forEach((todo) => {
+        todo.style.display = "flex";
+      });
+      break;
+    }
+
+    case "uncompleted": {
+      todos.forEach((todo) => {
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "none";
+        }
+      });
+      break;
+    }
+
+    case "completed": {
+      todos.forEach((todo) => {
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "none";
+        }
+      });
+      break;
+    }
+  }
 }

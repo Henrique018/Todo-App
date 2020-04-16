@@ -9,6 +9,7 @@
 * {
   margin: 0;
   padding: 0;
+  outline: 0;
   box-sizing: border-box;
 }
 
@@ -21,7 +22,7 @@ button {
   color: #fff;
   cursor: pointer;
   border: 0;
-  margin: 0;
+  margin: 0 2px;
   border-radius: 4px;
 }
 
@@ -45,18 +46,57 @@ p {
   margin: 50px;
 }
 
+form {
+  width:50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
 form input {
   border: 0;
-  width: 450px;
-  min-width: 400px;
-  border-radius: 4px;
+  width: 85%;
+  min-width: 200px;
+  border-radius: 8px;
   padding: 1em;
   background-color: #fff;
+  
 }
 
 form button {
   background-color: var(--primary-color);
   padding: 1em;
+}
+
+.select {
+  position: relative;
+  margin-left: 1rem;
+  overflow: hidden;
+  min-width: 10rem;
+}
+
+form select {
+  cursor: pointer;
+  padding: 5px;
+  min-width: 150px;
+  background: #fff;
+  border: 1px solid #eee;
+  padding:10px;
+}
+
+.select::after {
+  content: "\25bc";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  pointer-events: none;
+  background: #333;
+  color:#fff;
+  padding: 6px;
+  border-radius: 4px;
+
 }
 
 .todos-container {
@@ -73,9 +113,10 @@ form button {
 
 .todo {
   background-color: #fff;
-  padding: 7px;
+  padding: 8px;
   margin: 15px 0 5px 0;
   border: 1px solid #eee;
+  border-radius: 8px;
   
   display: flex;
   align-items:center;
