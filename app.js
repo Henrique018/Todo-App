@@ -9,6 +9,7 @@ const ul = document.querySelector(".todos");
 addButton.addEventListener("click", createTodo);
 ul.addEventListener("click", completedOrDelete);
 select.addEventListener("click", filterTodos);
+
 //functions
 function createTodo(e) {
   e.preventDefault();
